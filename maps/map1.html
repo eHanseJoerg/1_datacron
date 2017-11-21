@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script>L_PREFER_CANVAS = true; L_NO_TOUCH = false; L_DISABLE_3D = false;</script>
+    <script src="https://unpkg.com/leaflet@1.0.1/dist/leaflet.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.0.0/leaflet.markercluster-src.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.0.0/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.0.0/MarkerCluster.Default.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.0.0/MarkerCluster.css" />
+    <link rel="stylesheet" href="https://rawgit.com/python-visualization/folium/master/folium/templates/leaflet.awesome.rotate.css" />
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    
+            <style> #map_6f8a1cf71fa04e7285db29f0718070de {
+                position : relative;
+                width : 100.0%;
+                height: 100.0%;
+                left: 0.0%;
+                top: 0.0%;
+                }
+            </style>
+        
+</head>
+<body>    
+    
+            <div class="folium-map" id="map_6f8a1cf71fa04e7285db29f0718070de" ></div>
+        
+</body>
+<script>    
+    
+
+            
+                var southWest = L.latLng(-90, -180);
+                var northEast = L.latLng(90, 180);
+                var bounds = L.latLngBounds(southWest, northEast);
+            
+
+            var map_6f8a1cf71fa04e7285db29f0718070de = L.map(
+                                  'map_6f8a1cf71fa04e7285db29f0718070de',
+                                  {center: [40,10],
+                                  zoom: 4,
+                                  maxBounds: bounds,
+                                  layers: [],
+                                  worldCopyJump: false,
+                                  crs: L.CRS.EPSG3857
+                                 });
+            L.control.scale().addTo(map_6f8a1cf71fa04e7285db29f0718070de);
+        
+    
+            var tile_layer_4df87af5c6eb4f42a0171c2845c12914 = L.tileLayer(
+                'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+                {
+                    maxZoom: 18,
+                    minZoom: 1,
+                    continuousWorld: false,
+                    noWrap: false,
+                    attribution: 'Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://www.openstreetmap.org/copyright">ODbL</a>.',
+                    detectRetina: false
+                    }
+                ).addTo(map_6f8a1cf71fa04e7285db29f0718070de);
+
+        
+    
+
+            
+                geo_json_14be3b9dce5d45738092181e14bed7be_onEachFeature = function onEachFeature(feature, layer) {
+                    layer.on({
+                        mouseout: function(e) {
+                            e.target.setStyle(e.target.feature.properties.style);},
+                        mouseover: function(e) {
+                            e.target.setStyle(e.target.feature.properties.highlight);},
+                        click: function(e) {
+                            map_6f8a1cf71fa04e7285db29f0718070de.fitBounds(e.target.getBounds());}
+                        });
+                };
+            
+
+                var geo_json_14be3b9dce5d45738092181e14bed7be = L.geoJson(
+                    {"features": [{"geometry": {"coordinates": [[5.081111, 45.725556], [5.077222, 45.811667], [5.075556, 45.82], [5.067222, 45.861111], [5.058611, 45.921667], [5.0375, 45.945], [4.869167, 46.130833], [4.75, 46.2625], [4.721944, 46.293611], [4.619722, 46.408333], [4.538056, 46.5], [4.342778, 46.714167], [4.28, 46.782778], [4.259167, 46.805833], [3.924722, 47.373889], [3.758611, 47.649167], [3.607778, 47.899444], [3.5675, 47.966111], [3.538889, 47.984722], [3.4725, 48.028333], [3.329722, 48.121389], [3.206111, 48.202222], [3.186944, 48.214722], [3.129722, 48.251667], [3.063056, 48.295], [3.043056, 48.3075], [2.831944, 48.44], [2.600556, 48.584722], [2.379444, 48.723333]], "type": "LineString"}, "properties": {"highlight": {"color": "green", "dashArray": "5, 5", "fillColor": "#ffaf00", "weight": 5}, "style": {"color": "blue", "dashArray": "5, 5", "fillColor": "#ffaf00", "weight": 2.5}}, "type": "Feature"}], "type": "FeatureCollection"}
+                    
+                        , {
+                        
+
+                        
+                            
+                            onEachFeature: geo_json_14be3b9dce5d45738092181e14bed7be_onEachFeature
+                        
+                        }
+                    
+                    ).addTo(map_6f8a1cf71fa04e7285db29f0718070de);
+                geo_json_14be3b9dce5d45738092181e14bed7be.setStyle(function(feature) {return feature.properties.style;});
+
+            
+    
+            var popup_6a67d23cc1334dff88692d5a702e09e0 = L.popup({maxWidth: '300'});
+
+            
+                var html_cb71c128a3c94d86a60a617b18affc31 = $('<div id="html_cb71c128a3c94d86a60a617b18affc31" style="width: 100.0%; height: 100.0%;">tr_20160401_670709_m2 Place_LyonSaintExupery_Airport Place_ParisOrly_Airport</div>')[0];
+                popup_6a67d23cc1334dff88692d5a702e09e0.setContent(html_cb71c128a3c94d86a60a617b18affc31);
+            
+
+            geo_json_14be3b9dce5d45738092181e14bed7be.bindPopup(popup_6a67d23cc1334dff88692d5a702e09e0);
+
+            
+        
+    
+
+            
+                geo_json_a18bac120cd44651a7900ff97142b301_onEachFeature = function onEachFeature(feature, layer) {
+                    layer.on({
+                        mouseout: function(e) {
+                            e.target.setStyle(e.target.feature.properties.style);},
+                        mouseover: function(e) {
+                            e.target.setStyle(e.target.feature.properties.highlight);},
+                        click: function(e) {
+                            map_6f8a1cf71fa04e7285db29f0718070de.fitBounds(e.target.getBounds());}
+                        });
+                };
+            
+
+                var geo_json_a18bac120cd44651a7900ff97142b301 = L.geoJson(
+                    {"features": [{"geometry": {"coordinates": [[2.379444, 48.723333], [2.365278, 48.720278], [2.337222, 48.714167], [2.308889, 48.708056], [2.294722, 48.705278], [2.2525, 48.696111], [2.224167, 48.69], [2.200556, 48.680556], [2.093611, 48.638056], [2.028056, 48.65], [1.91, 48.671944], [1.778889, 48.696111], [1.634722, 48.7225], [1.503611, 48.746667], [1.476667, 48.747778], [1.300833, 48.755833], [1.098056, 48.765], [0.868333, 48.775278], [0.597778, 48.7875], [0.530278, 48.790556], [0.333056, 48.679444], [0.1775, 48.591667], [0.156667, 48.58], [-0.218611, 48.367778], [-0.25, 48.35], [-0.471389, 48.218889], [-0.622222, 48.129722], [-1.5175, 47.599722], [-1.928889, 47.348889], [-2.363056, 46.86], [-3.81, 45.573611], [-4.9475, 44.505278], [-6.610833, 42.7775], [-6.909444, 42.4675], [-6.9875, 42.386389], [-7.030278, 42.341944], [-7.08, 42.290278], [-7.094167, 42.275556], [-7.166111, 42.241944], [-7.9475, 41.8775], [-8.04, 41.834167], [-8.081111, 41.815], [-8.223611, 41.740556], [-8.523611, 41.582778], [-8.828333, 41.420556], [-8.857778, 41.405], [-8.855556, 41.396111], [-8.813333, 41.236111], [-8.794444, 41.165], [-8.775556, 41.093889], [-8.766111, 41.058333], [-8.755, 41.015556], [-8.741389, 40.964444], [-8.694444, 40.971389], [-8.611944, 40.983889], [-8.616389, 41.001111], [-8.634444, 41.069444], [-8.636667, 41.078056], [-8.648056, 41.121667], [-8.652778, 41.139167], [-8.659722, 41.165556], [-8.678056, 41.235556]], "type": "LineString"}, "properties": {"highlight": {"color": "green", "dashArray": "5, 5", "fillColor": "#ffaf00", "weight": 5}, "style": {"color": "blue", "dashArray": "5, 5", "fillColor": "#ffaf00", "weight": 2.5}}, "type": "Feature"}], "type": "FeatureCollection"}
+                    
+                        , {
+                        
+
+                        
+                            
+                            onEachFeature: geo_json_a18bac120cd44651a7900ff97142b301_onEachFeature
+                        
+                        }
+                    
+                    ).addTo(map_6f8a1cf71fa04e7285db29f0718070de);
+                geo_json_a18bac120cd44651a7900ff97142b301.setStyle(function(feature) {return feature.properties.style;});
+
+            
+    
+            var popup_88439ab838544197a063bbacd07c49a8 = L.popup({maxWidth: '300'});
+
+            
+                var html_e69174a9a8f04a15b0c12153cba58cf9 = $('<div id="html_e69174a9a8f04a15b0c12153cba58cf9" style="width: 100.0%; height: 100.0%;">tr_20160401_687118_m2 Place_ParisOrly_Airport Place_Porto___Pedras_Rubras</div>')[0];
+                popup_88439ab838544197a063bbacd07c49a8.setContent(html_e69174a9a8f04a15b0c12153cba58cf9);
+            
+
+            geo_json_a18bac120cd44651a7900ff97142b301.bindPopup(popup_88439ab838544197a063bbacd07c49a8);
+
+            
+        
+    
+
+            
+                geo_json_5c36e6bce496470ab0d1742c2b549b00_onEachFeature = function onEachFeature(feature, layer) {
+                    layer.on({
+                        mouseout: function(e) {
+                            e.target.setStyle(e.target.feature.properties.style);},
+                        mouseover: function(e) {
+                            e.target.setStyle(e.target.feature.properties.highlight);},
+                        click: function(e) {
+                            map_6f8a1cf71fa04e7285db29f0718070de.fitBounds(e.target.getBounds());}
+                        });
+                };
+            
+
+                var geo_json_5c36e6bce496470ab0d1742c2b549b00 = L.geoJson(
+                    {"features": [{"geometry": {"coordinates": [[8.548056, 47.458056], [8.523889, 47.453611], [8.487778, 47.446944], [8.451944, 47.44], [8.391667, 47.428889], [8.404444, 47.431111], [8.468611, 47.443056], [8.545556, 47.457222], [8.5875, 47.458611], [8.643333, 47.460556], [8.671111, 47.461667], [8.822778, 47.467222], [8.896944, 47.456389], [9.011111, 47.44], [9.201944, 47.4125], [9.38, 47.481389], [9.403611, 47.490556], [9.439444, 47.563333], [9.451389, 47.5875], [9.455833, 47.670556], [9.462222, 47.790556], [9.462778, 47.799722], [9.4625, 47.881111], [9.462222, 47.971389], [9.461944, 48.166667], [9.462222, 48.529167], [9.259167, 48.618333], [9.084167, 48.8825], [9.128333, 49.190833], [9.141667, 49.283611], [9.148056, 49.328333], [9.162222, 49.426944], [9.175, 49.516389], [9.189167, 49.615], [9.195556, 49.659722], [9.245556, 49.690556], [9.305278, 49.727778], [9.319722, 49.7725], [9.348333, 49.862222], [9.039722, 49.921111], [8.999444, 49.930833], [8.838611, 49.969167], [8.691111, 50.004444], [8.651111, 50.014167], [8.624167, 50.020556], [8.583889, 50.03], [8.570556, 50.033333]], "type": "LineString"}, "properties": {"highlight": {"color": "green", "dashArray": "5, 5", "fillColor": "#ffaf00", "weight": 5}, "style": {"color": "blue", "dashArray": "5, 5", "fillColor": "#ffaf00", "weight": 2.5}}, "type": "Feature"}], "type": "FeatureCollection"}
+                    
+                        , {
+                        
+
+                        
+                            
+                            onEachFeature: geo_json_5c36e6bce496470ab0d1742c2b549b00_onEachFeature
+                        
+                        }
+                    
+                    ).addTo(map_6f8a1cf71fa04e7285db29f0718070de);
+                geo_json_5c36e6bce496470ab0d1742c2b549b00.setStyle(function(feature) {return feature.properties.style;});
+
+            
+    
+            var popup_d12c4583741a4d4b9bbd51d990c5460c = L.popup({maxWidth: '300'});
+
+            
+                var html_c83f35d9c6744d4db42f0abddfe6bed8 = $('<div id="html_c83f35d9c6744d4db42f0abddfe6bed8" style="width: 100.0%; height: 100.0%;">tr_20160401_687913_m2 Place_Zurich_Kloten Place_FrankfurtMain_Airport</div>')[0];
+                popup_d12c4583741a4d4b9bbd51d990c5460c.setContent(html_c83f35d9c6744d4db42f0abddfe6bed8);
+            
+
+            geo_json_5c36e6bce496470ab0d1742c2b549b00.bindPopup(popup_d12c4583741a4d4b9bbd51d990c5460c);
+
+            
+        
+    
+
+            
+                geo_json_a4dea13594a5479aaa75a03de3b414f8_onEachFeature = function onEachFeature(feature, layer) {
+                    layer.on({
+                        mouseout: function(e) {
+                            e.target.setStyle(e.target.feature.properties.style);},
+                        mouseover: function(e) {
+                            e.target.setStyle(e.target.feature.properties.highlight);},
+                        click: function(e) {
+                            map_6f8a1cf71fa04e7285db29f0718070de.fitBounds(e.target.getBounds());}
+                        });
+                };
+            
+
+                var geo_json_a4dea13594a5479aaa75a03de3b414f8 = L.geoJson(
+                    {"features": [{"geometry": {"coordinates": [[9.988333, 53.630278], [9.981944, 53.638333], [9.944444, 53.687222], [9.919444, 53.719722], [9.848611, 53.705833], [9.763611, 53.688889], [9.579444, 53.6525], [9.542222, 53.636389], [9.418611, 53.582778], [9.282778, 53.523889], [9.134444, 53.459722], [8.961389, 53.384722], [8.874722, 53.347222], [8.727778, 53.336667], [8.5075, 53.320833], [8.438333, 53.303889], [8.092778, 53.218611], [7.622778, 53.102778], [7.277222, 53.017778], [6.890278, 52.9225], [6.420278, 52.806667], [5.745833, 52.6375], [3.171944, 51.924167], [2.666944, 51.809444], [2.622778, 51.806944], [2.460278, 51.797778], [2.224167, 51.784722], [2.195, 51.783056], [2.078333, 51.775833], [1.961667, 51.768889], [1.611944, 51.7475], [1.526111, 51.741944], [1.383056, 51.7325], [1.225833, 51.7225], [1.082778, 51.713056], [0.949444, 51.703889], [0.823333, 51.695], [0.683333, 51.685278], [0.453333, 51.668333], [0.295278, 51.656667], [0.151667, 51.646111], [0.118611, 51.636944], [0.035556, 51.614167], [-0.071944, 51.584722], [-0.188056, 51.552778], [-0.370278, 51.5025], [-0.395, 51.495833], [-0.461389, 51.4775]], "type": "LineString"}, "properties": {"highlight": {"color": "green", "dashArray": "5, 5", "fillColor": "#ffaf00", "weight": 5}, "style": {"color": "blue", "dashArray": "5, 5", "fillColor": "#ffaf00", "weight": 2.5}}, "type": "Feature"}], "type": "FeatureCollection"}
+                    
+                        , {
+                        
+
+                        
+                            
+                            onEachFeature: geo_json_a4dea13594a5479aaa75a03de3b414f8_onEachFeature
+                        
+                        }
+                    
+                    ).addTo(map_6f8a1cf71fa04e7285db29f0718070de);
+                geo_json_a4dea13594a5479aaa75a03de3b414f8.setStyle(function(feature) {return feature.properties.style;});
+
+            
+    
+            var popup_a8c0b0363a7848ad9db00c3980496f85 = L.popup({maxWidth: '300'});
+
+            
+                var html_615364af7ff246de94c0fbf42b04314b = $('<div id="html_615364af7ff246de94c0fbf42b04314b" style="width: 100.0%; height: 100.0%;">tr_20160401_689279_m2 Place_Hamburg_Airport Place_LondonHeathrow_Airport</div>')[0];
+                popup_a8c0b0363a7848ad9db00c3980496f85.setContent(html_615364af7ff246de94c0fbf42b04314b);
+            
+
+            geo_json_a4dea13594a5479aaa75a03de3b414f8.bindPopup(popup_a8c0b0363a7848ad9db00c3980496f85);
+
+            
+        
+    
+
+            
+                geo_json_7f9619beb5c74b97ace15b109b6c1a8e_onEachFeature = function onEachFeature(feature, layer) {
+                    layer.on({
+                        mouseout: function(e) {
+                            e.target.setStyle(e.target.feature.properties.style);},
+                        mouseover: function(e) {
+                            e.target.setStyle(e.target.feature.properties.highlight);},
+                        click: function(e) {
+                            map_6f8a1cf71fa04e7285db29f0718070de.fitBounds(e.target.getBounds());}
+                        });
+                };
+            
+
+                var geo_json_7f9619beb5c74b97ace15b109b6c1a8e = L.geoJson(
+                    {"features": [{"geometry": {"coordinates": [[35.49, 33.819167], [35.486111, 33.8075], [35.475833, 33.823333], [35.460556, 33.847222], [35.445, 33.871111], [35.424444, 33.902778], [35.398889, 33.942778], [35.326944, 34.053889], [35.234722, 34.197222], [35.183333, 34.276667], [35.1525, 34.324444], [35.05, 34.483333], [34.951667, 34.621111], [34.875278, 34.728611], [34.733056, 34.927778], [34.656667, 35.035], [34.6, 35.113056], [34.401667, 35.386111], [34.158333, 35.721667], [34.016667, 35.916667], [33.801111, 36.2], [33.754444, 36.261111], [33.5025, 36.588611], [33.291667, 36.862778], [31.582778, 38.090833], [30.814444, 38.619722], [30.546667, 38.803889], [30.354444, 39.047778], [30.276667, 39.146944], [30.204444, 39.238611], [30.138611, 39.3225], [30.078333, 39.398611], [30.054444, 39.429167], [29.992222, 39.506389], [29.936389, 39.575833], [29.793333, 39.753333], [29.718611, 39.845833], [29.637778, 39.946111], [29.438889, 40.193056], [29.323056, 40.334444], [29.303889, 40.357778], [29.2075, 40.475], [29.093889, 40.6175], [28.979722, 40.76], [28.894167, 40.866389], [28.881944, 40.881667], [28.788056, 40.838056], [28.710833, 40.801944], [28.691389, 40.793056], [28.635278, 40.766944], [28.579167, 40.740833], [28.560556, 40.731944], [28.523056, 40.714444], [28.466944, 40.688333], [28.523333, 40.735278], [28.628333, 40.822222], [28.725278, 40.9025], [28.814167, 40.976111]], "type": "LineString"}, "properties": {"highlight": {"color": "green", "dashArray": "5, 5", "fillColor": "#ffaf00", "weight": 5}, "style": {"color": "blue", "dashArray": "5, 5", "fillColor": "#ffaf00", "weight": 2.5}}, "type": "Feature"}], "type": "FeatureCollection"}
+                    
+                        , {
+                        
+
+                        
+                            
+                            onEachFeature: geo_json_7f9619beb5c74b97ace15b109b6c1a8e_onEachFeature
+                        
+                        }
+                    
+                    ).addTo(map_6f8a1cf71fa04e7285db29f0718070de);
+                geo_json_7f9619beb5c74b97ace15b109b6c1a8e.setStyle(function(feature) {return feature.properties.style;});
+
+            
+    
+            var popup_5352797c6b6240dcb4a3f5efa3454f3a = L.popup({maxWidth: '300'});
+
+            
+                var html_1b92613625184efabdd67fd8bc2dc798 = $('<div id="html_1b92613625184efabdd67fd8bc2dc798" style="width: 100.0%; height: 100.0%;">tr_20160401_691226_m2 Place_RaficHaririInternationalBeirut_Airport Place_Istanbul_Ataturk_Airport</div>')[0];
+                popup_5352797c6b6240dcb4a3f5efa3454f3a.setContent(html_1b92613625184efabdd67fd8bc2dc798);
+            
+
+            geo_json_7f9619beb5c74b97ace15b109b6c1a8e.bindPopup(popup_5352797c6b6240dcb4a3f5efa3454f3a);
+
+            
+        
+    
+
+            
+                geo_json_fe6e39ddb7f743368543d199a0d5eaf9_onEachFeature = function onEachFeature(feature, layer) {
+                    layer.on({
+                        mouseout: function(e) {
+                            e.target.setStyle(e.target.feature.properties.style);},
+                        mouseover: function(e) {
+                            e.target.setStyle(e.target.feature.properties.highlight);},
+                        click: function(e) {
+                            map_6f8a1cf71fa04e7285db29f0718070de.fitBounds(e.target.getBounds());}
+                        });
+                };
+            
+
+                var geo_json_fe6e39ddb7f743368543d199a0d5eaf9 = L.geoJson(
+                    {"features": [{"geometry": {"coordinates": [[1.367778, 43.635], [1.36, 43.641111], [1.354167, 43.645833], [1.348333, 43.650278], [1.336944, 43.659444], [1.327222, 43.667222], [1.309722, 43.680833], [1.291111, 43.808333], [1.241944, 44.145], [1.24, 44.188889], [1.235278, 44.285556], [1.23, 44.4], [1.227222, 44.461389], [1.203056, 44.5225], [1.144722, 44.671389], [1.0725, 44.855], [0.986667, 45.073611], [0.969444, 45.117222], [0.9025, 45.365], [0.840278, 45.594722], [0.7875, 45.789444], [0.780833, 46.538889], [0.803611, 46.610278], [0.834722, 46.708611], [0.930833, 47.011944], [1.042222, 47.359444], [1.056111, 47.402778], [1.064444, 47.428889], [1.0775, 47.454444], [1.103611, 47.505556], [1.125556, 47.548056], [1.173333, 47.641944], [1.216944, 47.726944], [1.265, 47.820556], [1.351944, 47.991111], [1.386944, 48.059167], [1.408889, 48.080833], [1.46, 48.131389], [1.507778, 48.178611], [1.571667, 48.241667], [1.601944, 48.259722], [1.682778, 48.307778], [1.783611, 48.368056], [1.915, 48.446389], [2.056389, 48.530556], [2.278611, 48.663056], [2.379444, 48.723333]], "type": "LineString"}, "properties": {"highlight": {"color": "green", "dashArray": "5, 5", "fillColor": "#ffaf00", "weight": 5}, "style": {"color": "blue", "dashArray": "5, 5", "fillColor": "#ffaf00", "weight": 2.5}}, "type": "Feature"}], "type": "FeatureCollection"}
+                    
+                        , {
+                        
+
+                        
+                            
+                            onEachFeature: geo_json_fe6e39ddb7f743368543d199a0d5eaf9_onEachFeature
+                        
+                        }
+                    
+                    ).addTo(map_6f8a1cf71fa04e7285db29f0718070de);
+                geo_json_fe6e39ddb7f743368543d199a0d5eaf9.setStyle(function(feature) {return feature.properties.style;});
+
+            
+    
+            var popup_d6baf7fe62bc4ca685e3e8f7579b5eff = L.popup({maxWidth: '300'});
+
+            
+                var html_61a7a09d676a4b2bbf3d80f87cdaf872 = $('<div id="html_61a7a09d676a4b2bbf3d80f87cdaf872" style="width: 100.0%; height: 100.0%;">tr_20160401_694005_m2 Place_Toulouse_Blagnac_Airport Place_ParisOrly_Airport</div>')[0];
+                popup_d6baf7fe62bc4ca685e3e8f7579b5eff.setContent(html_61a7a09d676a4b2bbf3d80f87cdaf872);
+            
+
+            geo_json_fe6e39ddb7f743368543d199a0d5eaf9.bindPopup(popup_d6baf7fe62bc4ca685e3e8f7579b5eff);
+
+            
+        
+    
+
+            
+                geo_json_eb522ead083e404584997da4ef76d40d_onEachFeature = function onEachFeature(feature, layer) {
+                    layer.on({
+                        mouseout: function(e) {
+                            e.target.setStyle(e.target.feature.properties.style);},
+                        mouseover: function(e) {
+                            e.target.setStyle(e.target.feature.properties.highlight);},
+                        click: function(e) {
+                            map_6f8a1cf71fa04e7285db29f0718070de.fitBounds(e.target.getBounds());}
+                        });
+                };
+            
+
+                var geo_json_eb522ead083e404584997da4ef76d40d = L.geoJson(
+                    {"features": [{"geometry": {"coordinates": [[9.700278, 45.668889], [9.713056, 45.666667], [9.738889, 45.661944], [9.815833, 45.648333], [9.841667, 45.643889], [9.827778, 45.669444], [9.800278, 45.720278], [9.768056, 45.779722], [9.694444, 45.915556], [9.662222, 45.975], [9.621389, 46.097222], [9.586389, 46.202222], [9.551389, 46.306944], [9.548333, 46.315556], [9.500833, 46.455556], [9.444167, 46.621667], [9.333889, 46.945], [9.298056, 47.05], [9.277778, 47.120833], [9.219444, 47.324167], [9.150833, 47.562778], [9.107778, 47.713056], [9.120556, 47.79], [9.1625, 48.044167], [9.182778, 48.166667], [9.259167, 48.618333], [9.414444, 49.618333], [9.486389, 50.066944], [9.561667, 50.528889], [9.572222, 50.5925], [9.598333, 50.729167], [9.675, 51.123611], [9.787778, 51.337222], [10.298056, 52.302778], [10.406389, 52.479722], [10.888611, 53.248889], [11.210833, 53.678611], [11.433889, 53.976111], [11.453056, 54.000833], [11.567222, 54.149167], [11.617778, 54.215], [11.675, 54.289167], [11.693889, 54.313333], [11.7, 54.321111], [11.800278, 54.449444], [11.84, 54.499722], [11.846667, 54.508333], [11.925833, 54.609167], [11.9325, 54.6175], [12.305, 54.938056], [12.313611, 54.945556], [12.379167, 55.001389], [12.604444, 55.193611], [12.649444, 55.231944], [12.706111, 55.370278], [12.7275, 55.421944], [12.769722, 55.525556], [12.7875, 55.568889], [12.815833, 55.638056], [12.854722, 55.733056], [12.861944, 55.750278], [12.779722, 55.6975], [12.656111, 55.618056]], "type": "LineString"}, "properties": {"highlight": {"color": "green", "dashArray": "5, 5", "fillColor": "#ffaf00", "weight": 5}, "style": {"color": "blue", "dashArray": "5, 5", "fillColor": "#ffaf00", "weight": 2.5}}, "type": "Feature"}], "type": "FeatureCollection"}
+                    
+                        , {
+                        
+
+                        
+                            
+                            onEachFeature: geo_json_eb522ead083e404584997da4ef76d40d_onEachFeature
+                        
+                        }
+                    
+                    ).addTo(map_6f8a1cf71fa04e7285db29f0718070de);
+                geo_json_eb522ead083e404584997da4ef76d40d.setStyle(function(feature) {return feature.properties.style;});
+
+            
+    
+            var popup_3621a0e51385411e8a94956451ea1828 = L.popup({maxWidth: '300'});
+
+            
+                var html_deb109666dc24789b1e78792c6daf87f = $('<div id="html_deb109666dc24789b1e78792c6daf87f" style="width: 100.0%; height: 100.0%;">tr_20160401_700474_m2 Place_Bergamo_OrioAlSerio_Airport Place_Koebenhavn_Kastrup_Airport</div>')[0];
+                popup_3621a0e51385411e8a94956451ea1828.setContent(html_deb109666dc24789b1e78792c6daf87f);
+            
+
+            geo_json_eb522ead083e404584997da4ef76d40d.bindPopup(popup_3621a0e51385411e8a94956451ea1828);
+
+            
+        
+    
+
+            
+                geo_json_770493b796e64883bfbaeeb3fb3a1a7d_onEachFeature = function onEachFeature(feature, layer) {
+                    layer.on({
+                        mouseout: function(e) {
+                            e.target.setStyle(e.target.feature.properties.style);},
+                        mouseover: function(e) {
+                            e.target.setStyle(e.target.feature.properties.highlight);},
+                        click: function(e) {
+                            map_6f8a1cf71fa04e7285db29f0718070de.fitBounds(e.target.getBounds());}
+                        });
+                };
+            
+
+                var geo_json_770493b796e64883bfbaeeb3fb3a1a7d = L.geoJson(
+                    {"features": [{"geometry": {"coordinates": [[7.529167, 47.59], [7.524167, 47.597222], [7.514167, 47.611389], [7.499444, 47.632778], [7.48, 47.666389], [7.421667, 47.767222], [7.3875, 47.826111], [7.348611, 47.893333], [7.304722, 47.969167], [7.256111, 48.053056], [7.226944, 48.103611], [6.716111, 48.986389], [6.463889, 49.366944], [6.391667, 49.466667], [6.358611, 49.523333], [6.281667, 49.637222], [6.129722, 49.861389], [6.13, 49.916111], [6.130833, 50.034722], [6.132222, 50.299167], [6.332778, 50.494167], [6.631389, 50.780278], [6.694167, 50.840556], [6.692778, 50.858056], [6.687778, 50.918889], [6.683611, 50.970833], [6.679444, 51.023056], [6.678611, 51.032222], [6.674167, 51.087222], [6.672778, 51.105556], [6.645556, 51.147222], [6.552778, 51.289167], [6.593611, 51.2875], [6.634444, 51.285833], [6.743611, 51.281389], [6.757222, 51.280833]], "type": "LineString"}, "properties": {"highlight": {"color": "green", "dashArray": "5, 5", "fillColor": "#ffaf00", "weight": 5}, "style": {"color": "blue", "dashArray": "5, 5", "fillColor": "#ffaf00", "weight": 2.5}}, "type": "Feature"}], "type": "FeatureCollection"}
+                    
+                        , {
+                        
+
+                        
+                            
+                            onEachFeature: geo_json_770493b796e64883bfbaeeb3fb3a1a7d_onEachFeature
+                        
+                        }
+                    
+                    ).addTo(map_6f8a1cf71fa04e7285db29f0718070de);
+                geo_json_770493b796e64883bfbaeeb3fb3a1a7d.setStyle(function(feature) {return feature.properties.style;});
+
+            
+    
+            var popup_6cebed8e50764854a1c867b6a3721feb = L.popup({maxWidth: '300'});
+
+            
+                var html_1544dfd418804e0bbea61f0a41a1858a = $('<div id="html_1544dfd418804e0bbea61f0a41a1858a" style="width: 100.0%; height: 100.0%;">tr_20160401_702044_m2 Place_Bale_Mulhouse_Airport Place_Dusseldorf_Airport</div>')[0];
+                popup_6cebed8e50764854a1c867b6a3721feb.setContent(html_1544dfd418804e0bbea61f0a41a1858a);
+            
+
+            geo_json_770493b796e64883bfbaeeb3fb3a1a7d.bindPopup(popup_6cebed8e50764854a1c867b6a3721feb);
+
+            
+        
+    
+
+            
+                geo_json_c7e565e9b05444d082c6436d727c8fd4_onEachFeature = function onEachFeature(feature, layer) {
+                    layer.on({
+                        mouseout: function(e) {
+                            e.target.setStyle(e.target.feature.properties.style);},
+                        mouseover: function(e) {
+                            e.target.setStyle(e.target.feature.properties.highlight);},
+                        click: function(e) {
+                            map_6f8a1cf71fa04e7285db29f0718070de.fitBounds(e.target.getBounds());}
+                        });
+                };
+            
+
+                var geo_json_c7e565e9b05444d082c6436d727c8fd4 = L.geoJson(
+                    {"features": [{"geometry": {"coordinates": [[27.155, 38.289167], [27.155278, 38.289722], [27.155556, 38.29], [27.155833, 38.290556], [27.156389, 38.291389], [27.156944, 38.2925], [27.157778, 38.293611], [27.158611, 38.295], [27.149444, 38.378056], [27.146667, 38.486111], [27.143889, 38.585], [27.140833, 38.701944], [27.137222, 38.836944], [27.133056, 38.99], [27.132778, 38.998889], [27.163889, 39.168611], [27.206389, 39.400556], [27.224444, 39.498889], [27.231944, 39.543611], [27.259167, 39.704444], [27.277222, 39.811667], [27.292222, 39.891944], [27.336944, 40.1325], [27.365278, 40.284167], [27.576944, 40.633333], [27.586667, 40.649444], [27.600278, 40.664444], [27.856944, 40.950278], [28.1, 41.065278], [28.462222, 41.234722], [28.554722, 41.121111], [28.646944, 41.0075], [28.553333, 40.963611], [28.496944, 40.9375], [28.440833, 40.911111], [28.384722, 40.885], [28.339722, 40.863889], [28.328611, 40.858611], [28.291389, 40.841111], [28.272778, 40.832222], [28.216667, 40.805833], [28.238889, 40.812222], [28.371667, 40.85], [28.493333, 40.884722], [28.659167, 40.931944], [28.703611, 40.944444], [28.725556, 40.950833], [28.814167, 40.976111]], "type": "LineString"}, "properties": {"highlight": {"color": "green", "dashArray": "5, 5", "fillColor": "#ffaf00", "weight": 5}, "style": {"color": "blue", "dashArray": "5, 5", "fillColor": "#ffaf00", "weight": 2.5}}, "type": "Feature"}], "type": "FeatureCollection"}
+                    
+                        , {
+                        
+
+                        
+                            
+                            onEachFeature: geo_json_c7e565e9b05444d082c6436d727c8fd4_onEachFeature
+                        
+                        }
+                    
+                    ).addTo(map_6f8a1cf71fa04e7285db29f0718070de);
+                geo_json_c7e565e9b05444d082c6436d727c8fd4.setStyle(function(feature) {return feature.properties.style;});
+
+            
+    
+            var popup_89413e66b16f48b7a555477b90818c8c = L.popup({maxWidth: '300'});
+
+            
+                var html_7f8449e0866b488885cc08498bd270dd = $('<div id="html_7f8449e0866b488885cc08498bd270dd" style="width: 100.0%; height: 100.0%;">tr_20160401_702342_m2 Place_Izmir_AdnanMenderes_Airport Place_Istanbul_Ataturk_Airport</div>')[0];
+                popup_89413e66b16f48b7a555477b90818c8c.setContent(html_7f8449e0866b488885cc08498bd270dd);
+            
+
+            geo_json_c7e565e9b05444d082c6436d727c8fd4.bindPopup(popup_89413e66b16f48b7a555477b90818c8c);
+
+            
+        
+    
+
+            
+                geo_json_8f9ceaccfc7e4e79917a08c7fefa1ed2_onEachFeature = function onEachFeature(feature, layer) {
+                    layer.on({
+                        mouseout: function(e) {
+                            e.target.setStyle(e.target.feature.properties.style);},
+                        mouseover: function(e) {
+                            e.target.setStyle(e.target.feature.properties.highlight);},
+                        click: function(e) {
+                            map_6f8a1cf71fa04e7285db29f0718070de.fitBounds(e.target.getBounds());}
+                        });
+                };
+            
+
+                var geo_json_8f9ceaccfc7e4e79917a08c7fefa1ed2 = L.geoJson(
+                    {"features": [{"geometry": {"coordinates": [[-16.5725, 28.044444], [-16.562222, 28.047778], [-16.469167, 28.076667], [-16.458889, 28.08], [-16.411944, 28.095833], [-16.364722, 28.111667], [-16.298889, 28.133611], [-16.223611, 28.158889], [-16.138889, 28.1875], [-16.129444, 28.190556], [-16.157222, 28.259722], [-16.195556, 28.355], [-16.2375, 28.458889], [-16.268889, 28.536944], [-16.254167, 28.579722], [-16.206667, 28.716944], [-16.150556, 28.88], [-16.100278, 29.025833], [-16.040833, 29.197222], [-15.984722, 29.360278], [-15.916667, 29.5575], [-15.833611, 29.797778], [-15.768611, 29.986389], [-16.032778, 31.421389], [-14.730278, 34.398056], [-11.595556, 39.3725], [-10.186667, 40.884722], [-9.361944, 41.925556], [-6.919722, 44.835278], [-6.662222, 45.138056], [-5.408056, 46.612778], [-4.990556, 47.079167], [-4.524722, 47.591389], [-4.3125, 47.829444], [-4.184722, 47.957222], [-4.061667, 48.301944], [-3.808611, 48.976944], [-3.529444, 49.737222], [-3.493611, 50.398611], [-3.463889, 50.574167], [-3.448333, 50.666667], [-3.423889, 50.809167], [-3.416944, 50.8475], [-3.388611, 51.013056], [-3.359722, 51.178611], [-3.328056, 51.358333], [-3.315278, 51.430278], [-3.301111, 51.511111], [-3.283611, 51.61], [-3.263056, 51.725556], [-3.259167, 51.776944], [-3.256944, 51.808611], [-3.250556, 51.891667], [-3.249167, 51.911667], [-3.245556, 51.958333], [-3.2325, 52.134167], [-3.217778, 52.325556], [-3.205278, 52.489444], [-3.200278, 52.553333], [-3.1975, 52.588333], [-3.189444, 52.693333], [-3.1875, 52.719444], [-3.180556, 52.809722], [-3.173889, 52.892778], [-3.165556, 52.999722], [-3.134444, 53.391944], [-3.305278, 53.399722], [-3.445278, 53.406111], [-3.453889, 53.450833], [-3.355556, 53.4625], [-3.296667, 53.44], [-3.284722, 53.435556], [-3.158333, 53.405833], [-3.046111, 53.379722], [-2.961944, 53.36], [-2.849722, 53.333611]], "type": "LineString"}, "properties": {"highlight": {"color": "green", "dashArray": "5, 5", "fillColor": "#ffaf00", "weight": 5}, "style": {"color": "blue", "dashArray": "5, 5", "fillColor": "#ffaf00", "weight": 2.5}}, "type": "Feature"}], "type": "FeatureCollection"}
+                    
+                        , {
+                        
+
+                        
+                            
+                            onEachFeature: geo_json_8f9ceaccfc7e4e79917a08c7fefa1ed2_onEachFeature
+                        
+                        }
+                    
+                    ).addTo(map_6f8a1cf71fa04e7285db29f0718070de);
+                geo_json_8f9ceaccfc7e4e79917a08c7fefa1ed2.setStyle(function(feature) {return feature.properties.style;});
+
+            
+    
+            var popup_88156ec02f3946d2905a5326351aa95c = L.popup({maxWidth: '300'});
+
+            
+                var html_cffdb87a555e41ed90a2300a30ce3e30 = $('<div id="html_cffdb87a555e41ed90a2300a30ce3e30" style="width: 100.0%; height: 100.0%;">tr_20160401_702707_m2 Place_TenerifeSur_ReinaSofia_Airport Place_Liverpool_Airport</div>')[0];
+                popup_88156ec02f3946d2905a5326351aa95c.setContent(html_cffdb87a555e41ed90a2300a30ce3e30);
+            
+
+            geo_json_8f9ceaccfc7e4e79917a08c7fefa1ed2.bindPopup(popup_88156ec02f3946d2905a5326351aa95c);
+
+            
+        
+    
+            var layer_control_2b26b55b639e47b8a6755518bffb9f7c = {
+                base_layers : { "openstreetmap" : tile_layer_4df87af5c6eb4f42a0171c2845c12914, },
+                overlays : { "Place_LyonSaintExupery_AirportPlace_ParisOrly_Airport" : geo_json_14be3b9dce5d45738092181e14bed7be,"Place_ParisOrly_AirportPlace_Porto___Pedras_Rubras" : geo_json_a18bac120cd44651a7900ff97142b301,"Place_Zurich_KlotenPlace_FrankfurtMain_Airport" : geo_json_5c36e6bce496470ab0d1742c2b549b00,"Place_Hamburg_AirportPlace_LondonHeathrow_Airport" : geo_json_a4dea13594a5479aaa75a03de3b414f8,"Place_RaficHaririInternationalBeirut_AirportPlace_Istanbul_Ataturk_Airport" : geo_json_7f9619beb5c74b97ace15b109b6c1a8e,"Place_Toulouse_Blagnac_AirportPlace_ParisOrly_Airport" : geo_json_fe6e39ddb7f743368543d199a0d5eaf9,"Place_Bergamo_OrioAlSerio_AirportPlace_Koebenhavn_Kastrup_Airport" : geo_json_eb522ead083e404584997da4ef76d40d,"Place_Bale_Mulhouse_AirportPlace_Dusseldorf_Airport" : geo_json_770493b796e64883bfbaeeb3fb3a1a7d,"Place_Izmir_AdnanMenderes_AirportPlace_Istanbul_Ataturk_Airport" : geo_json_c7e565e9b05444d082c6436d727c8fd4,"Place_TenerifeSur_ReinaSofia_AirportPlace_Liverpool_Airport" : geo_json_8f9ceaccfc7e4e79917a08c7fefa1ed2, }
+                };
+            L.control.layers(
+                layer_control_2b26b55b639e47b8a6755518bffb9f7c.base_layers,
+                layer_control_2b26b55b639e47b8a6755518bffb9f7c.overlays,
+                {position: 'topright',
+                 collapsed: true,
+                 autoZIndex: true
+                }).addTo(map_6f8a1cf71fa04e7285db29f0718070de);
+        
+</script>

@@ -1,0 +1,11 @@
+#ignore data directory:
+/data
+
+#ignore ipynb_checkpoints directory:
+/.ipynb_checkpoints
+
+
+
+
+# wenn ich etwas nicht ignorieren will, dann mit ausrufezeichen:
+# !data/wichtigedatei.txt
